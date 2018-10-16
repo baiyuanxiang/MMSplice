@@ -32,20 +32,20 @@ We provide a filtered version [here](https://raw.githubusercontent.com/gagneurla
 Note this version has chromosome names in the format `chr*`. You may need to remove them to match the chromosome names in your fasta file.
 
 #### 2. Prepare variant (VCF) file
-A correctly formatted VCF file with work with `MMSplice`, however the following steps will make it less prone to false positives:
+A correctly formatted VCF file will work with `MMSplice`, however the following steps will make it less prone to false positives:
 
 - Quality filtering. Low quality variants leads to unreliable predictions.
 - Avoid presenting multiple variants in one line by splitting them into multiple lines. Example code to do it:
   ```bash
   bcftools norm -m-both -o out.vcf in.vcf.gz
   ```
-- Left-normalization. For instance, GGCA-->GG is not left-normalized while GCA-->G is. Details for unified representation of genetic variants see [Tan et al.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4481842/)
+- Left-normalization. For instance, GGCA-->GG is not left-normalized while GCA-->G is. Details on unified representation of genetic variants see [Tan et al.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4481842/)
   ```bash
   bcftools norm -f reference.fasta -o out.vcf in.vcf
   ```
   
 #### 3. Prepare reference genome (fasta) file
-Human reference fasta file can be downloaded from ensembl/gencode. Make sure the chromosome name matches with GTF annotation file you use.
+Human reference fasta file can be downloaded from ensembl/gencode. Make sure the chromosome names match with the GTF annotation file you use.
 
 
 ### Example code
@@ -69,7 +69,7 @@ gtfIntervalTree = '../tests/data/test.pkl' # pickle exon interval Tree
 dl = SplicingVCFDataloader(gtf,
                           fasta,
                           vcf,
-                          out_file=gtfIntervalTree, # same pikled gtf IntervalTree
+                          out_file=gtfIntervalTree, # to pickle gtf IntervalTree
                           split_seq=False)
 
 # Specify model
