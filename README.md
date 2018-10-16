@@ -34,8 +34,8 @@ Note this version has chromosome names in the format `chr*`. You may need to rem
 #### 2. Prepare variant (VCF) file
 A correctly formatted VCF file will work with `MMSplice`, however the following steps will make it less prone to false positives:
 
-- Quality filtering. Low quality variants leads to unreliable predictions.
-- Avoid presenting multiple variants in one line by splitting them into multiple lines. Example code to do it:
+- Quality filtering. Low quality variants lead to unreliable predictions.
+- Avoid presenting multiple variants in one line by splitting them into multiple lines. Example code to do this:
   ```bash
   bcftools norm -m-both -o out.vcf in.vcf.gz
   ```
