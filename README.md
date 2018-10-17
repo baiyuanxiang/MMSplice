@@ -1,7 +1,6 @@
 # mmsplice
 
 [![pypi](https://img.shields.io/pypi/v/mmsplice.svg)](https://pypi.python.org/pypi/mmsplice)
-[![travis](https://img.shields.io/travis/s6juncheng/mmsplice.svg)](https://travis-ci.org/s6juncheng/mmsplice)
 
 Predict splicing variant effect from VCF
 
